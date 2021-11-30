@@ -6,11 +6,11 @@
     <parent>
         <groupId>com.farao-community.farao</groupId>
         <artifactId>gridcapa-fake-process-runner</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.1</version>
     </parent>
 
     <artifactId>gridcapa-fake-process-runner-api</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>GridCapa fake process runner API</name>
     <description>GridCapa fake process runner API</description>
     <url>http://www.farao-community.com</url>
