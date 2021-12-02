@@ -13,8 +13,8 @@
     <artifactId>gridcapa-fake-runner</artifactId>
     <packaging>pom</packaging>
     <version>0.2.0-SNAPSHOT</version>
-    <name>GridCapa fake process runner</name>
-    <description>GridCapa fake process runner</description>
+    <name>GridCapa fake runner</name>
+    <description>GridCapa fake runner</description>
     <url>http://www.farao-community.com</url>
 
     <licenses>
