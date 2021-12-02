@@ -9,7 +9,7 @@ spring:
       bindings:
         handleRun-in-0:
           binder: rabbit
-          destination: run-request
+          destination: run-task
         handleRun-out-0:
           binder: rabbit
-          destination: run-response
+          destination: task-status-updated
