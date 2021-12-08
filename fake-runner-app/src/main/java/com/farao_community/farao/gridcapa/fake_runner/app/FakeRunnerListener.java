@@ -35,22 +35,25 @@ public class FakeRunnerListener {
     public Function<TaskDto, TaskStatusUpdate> handleRun() {
         return taskDto -> {
             LOGGER.info(String.format("Handling run request %s on TS ", taskDto.getTimestamp()));
-            streamBridge.send(TASK_STATUS_UPDATES_BINDING, new TaskStatusUpdate(taskDto.getTimestamp(), TaskStatus.RUNNING));
+            streamBridge.send(TASK_STATUS_UPDATES_BINDING, new TaskStatusUpdate(taskDto.getId(), TaskStatus.RUNNING));
             try {
-                wait(10000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+                synchronized (this) {
+                    wait(10000);
+                }
+                TaskStatus taskStatus;
+                if (taskDto.getTimestamp().getHour() >= 9
+                    && taskDto.getTimestamp().getHour() < 18) {
+                    LOGGER.info("Ok I can work !");
+                    taskStatus = TaskStatus.SUCCESS;
+                } else {
+                    LOGGER.info("Out of my working time sorry...");
+                    taskStatus = TaskStatus.ERROR;
+                }
+                return new TaskStatusUpdate(taskDto.getId(), taskStatus);
+            } catch (Exception e) {
+                LOGGER.error("Unhandled exception occured: {}", e.getMessage());
+                return new TaskStatusUpdate(taskDto.getId(), TaskStatus.ERROR);
             }
-            TaskStatus taskStatus;
-            if (taskDto.getTimestamp().getHour() >= 9
-                && taskDto.getTimestamp().getHour() < 18) {
-                LOGGER.info("Ok I can work !");
-                taskStatus = TaskStatus.SUCCESS;
-            } else {
-                LOGGER.info("Out of my working time sorry...");
-                taskStatus = TaskStatus.ERROR;
-            }
-            return new TaskStatusUpdate(taskDto.getTimestamp(), taskStatus);
         };
     }
 }

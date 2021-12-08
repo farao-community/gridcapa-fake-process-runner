@@ -6,10 +6,16 @@ spring:
     port: 5672
   cloud:
     stream:
+      default:
+        binder: rabbit
+        group: fake-runner
       bindings:
         handleRun-in-0:
-          binder: rabbit
           destination: run-task
         handleRun-out-0:
-          binder: rabbit
           destination: task-status-updated
+      rabbit:
+        default:
+          consumer:
+            auto-bind-dlq: true
+            max-attempts: 1
