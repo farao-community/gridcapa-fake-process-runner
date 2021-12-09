@@ -3,16 +3,16 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>gridcapa-fake-process-runner</artifactId>
+        <artifactId>gridcapa-fake-runner</artifactId>
         <groupId>com.farao-community.farao</groupId>
         <version>0.2.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>gridcapa-fake-process-runner-app</artifactId>
+    <artifactId>gridcapa-fake-runner-app</artifactId>
     <version>0.2.0-SNAPSHOT</version>
-    <name>GridCapa fake process runner application</name>
-    <description>GridCapa fake process runner application</description>
+    <name>GridCapa fake runner application</name>
+    <description>GridCapa fake runner application</description>
     <url>http://www.farao-community.com</url>
 
     <build>
@@ -26,9 +26,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>gridcapa-fake-process-runner-api</artifactId>
-            <version>${project.version}</version>
+            <groupId>com.farao-community.farao</groupId>
+            <artifactId>gridcapa-task-manager-api</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

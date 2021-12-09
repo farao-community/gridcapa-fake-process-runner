@@ -10,11 +10,11 @@
         <version>1.1.0</version>
     </parent>
 
-    <artifactId>gridcapa-fake-process-runner</artifactId>
+    <artifactId>gridcapa-fake-runner</artifactId>
     <packaging>pom</packaging>
     <version>0.2.0-SNAPSHOT</version>
-    <name>GridCapa fake process runner</name>
-    <description>GridCapa fake process runner</description>
+    <name>GridCapa fake runner</name>
+    <description>GridCapa fake runner</description>
     <url>http://www.farao-community.com</url>
 
     <licenses>
@@ -40,18 +40,23 @@
     </developers>
 
     <modules>
-        <module>fake-process-runner-api</module>
-        <module>fake-process-runner-app</module>
+        <module>fake-runner-app</module>
     </modules>
 
     <properties>
         <!-- Dependency versions -->
         <apache.commons.verion>2.6</apache.commons.verion>
         <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
+        <task-manager.version>0.1.0</task-manager.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.farao-community.farao</groupId>
+                <artifactId>gridcapa-task-manager-api</artifactId>
+                <version>${task-manager.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
