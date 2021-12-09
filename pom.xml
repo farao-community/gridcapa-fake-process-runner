@@ -47,10 +47,16 @@
         <!-- Dependency versions -->
         <apache.commons.verion>2.6</apache.commons.verion>
         <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
+        <task-manager.version>0.1.0</task-manager.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.farao-community.farao</groupId>
+                <artifactId>gridcapa-task-manager-api</artifactId>
+                <version>${task-manager.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>

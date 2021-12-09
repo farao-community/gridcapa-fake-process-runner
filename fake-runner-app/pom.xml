@@ -15,10 +15,6 @@
     <description>GridCapa fake runner application</description>
     <url>http://www.farao-community.com</url>
 
-    <properties>
-        <task-manager.version>0.2.0-SNAPSHOT</task-manager.version>
-    </properties>
-
     <build>
         <plugins>
             <plugin>
@@ -32,7 +28,6 @@
         <dependency>
             <groupId>com.farao-community.farao</groupId>
             <artifactId>gridcapa-task-manager-api</artifactId>
-            <version>${task-manager.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
